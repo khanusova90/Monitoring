@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">Monitoring</string>    
+    <string name="phone_number">Telefonní číslo</string>
+    
+<!-- .........................Uvodni strana............................. -->
+    <string name="welcome">Vítejte v aplikaci Sledování!</string>
+    <string name="phone_input">Zadejte telefonní číslo pro případ nouze:</string>
+    <string name="save">Uložit</string>
+    <string name="actual_phone">Aktuálně uložené číslo: %s</string>
+    <string name="no_phone">Ještě nemáte uloženo žádné telefonní číslo.</string>
+    
+<!-- ............................SOS view............................... -->
+	<string name="okay_state">Jsem v pořádku</string>
+	<string name="call_sos">Volej SOS!</string>
+	
+<!-- ............................Location............................... -->
+	<string name="connection_failed">Připojení selhalo.</string>
+	<string name="connection_suspended">Připojení bylo přerušeno.</string>
+	<string name="cannot_localize">Nebylo možné lokalizovat telefon.</string>
+
+</resources>
