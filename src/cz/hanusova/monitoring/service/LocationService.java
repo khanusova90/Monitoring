@@ -5,10 +5,10 @@ import cz.hanusova.monitoring.model.AddressDTO;
 public interface LocationService {
 
 	/**
-	 * Finds last known location
+	 * Najde posledni zname umisteni telefonu podle GPS nebo podle site
 	 * 
-	 * @return new instance of {@link AddressDTO} filled with information about
-	 *         last known location
+	 * @return Nova instance {@link AddressDTO} naplnena informacemi o poslednim
+	 *         znamem umiteni.
 	 */
 	public AddressDTO getLocation();
 

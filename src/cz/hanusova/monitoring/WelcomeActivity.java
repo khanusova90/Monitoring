@@ -68,19 +68,6 @@ public class WelcomeActivity extends ActionBarActivity {
 		}
 	}
 
-	// /**
-	// * Vyhleda v pameti telefonni cislo
-	// *
-	// * @return <code>String</code> hodnotu telefonniho cisla. Pokud v pameti
-	// * jeste neni ulozeno, vrati <code>null</code>
-	// */
-	// private String getNumber() {
-	// SharedPreferences settings = getApplicationContext()
-	// .getSharedPreferences(getString(R.string.app_name),
-	// Context.MODE_PRIVATE);
-	// return settings.getString(getString(R.string.phone_number), null);
-	// }
-
 	// TODO: smazat
 	public void startSos(View button) {
 		Intent intent = new Intent(this, SosActivity.class);
@@ -92,6 +79,9 @@ public class WelcomeActivity extends ActionBarActivity {
 		startActivity(intent);
 	}
 
+	/**
+	 * Spusti sledovani padu
+	 */
 	private void monitor() {
 		Intent intent = new Intent(this, MonitoringService.class);
 		startService(intent);

@@ -8,6 +8,7 @@ public class AddressDTO {
 	private String number;
 	private String latitude;
 	private String longitude;
+	private String error;
 
 	/*
 	 * Getters and setters
@@ -58,6 +59,14 @@ public class AddressDTO {
 
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 
 }

@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     
     <uses-feature 
         android:name="android.hardware.sensor.accelerometer" 
@@ -45,6 +46,12 @@
         
         <service 
             android:name="MonitoringService" />
+        
+        <receiver android:name="BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         
         <activity android:name="SledovaniPozice"></activity>
     </application>

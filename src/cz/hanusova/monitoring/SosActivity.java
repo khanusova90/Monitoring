@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 import cz.hanusova.monitoring.model.AddressDTO;
 import cz.hanusova.monitoring.model.Codelist;
@@ -30,6 +31,9 @@ public class SosActivity extends ActionBarActivity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sos_view);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 		play = true;
 		numberService = new NumberServiceImpl(getApplicationContext());
 
@@ -85,6 +89,9 @@ public class SosActivity extends ActionBarActivity {
 		// TODO: zkontrolovat metodu
 	}
 
+	/**
+	 * Metoda spusti zvuk budiku po dobe definovane v {@link Codelist}
+	 */
 	private void startAlarm() {
 		System.out.println("Starting alarm");
 

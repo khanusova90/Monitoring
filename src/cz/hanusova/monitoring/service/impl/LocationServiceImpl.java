@@ -8,6 +8,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import cz.hanusova.monitoring.R;
 import cz.hanusova.monitoring.model.AddressDTO;
 import cz.hanusova.monitoring.service.LocationService;
 
@@ -33,11 +34,18 @@ public class LocationServiceImpl implements LocationService {
 		return getLocationProperties(location);
 	}
 
+	/**
+	 * Ulozi informace o umisteni dle nalezene lokality
+	 * 
+	 * @param location
+	 *            Instance tridy {@link Location} ziskana z GPS nebo site
+	 * @return Nova instance {@link AddressDTO} naplnena informacemi o umisteni
+	 */
 	private AddressDTO getLocationProperties(Location location) {
 		Geocoder gc = new Geocoder(ctx, Locale.getDefault());
 		AddressDTO newAddress = new AddressDTO();
 		if (location == null) {
-			newAddress.setCity("Cannot get location information.");
+			newAddress.setError(ctx.getString(R.string.cannot_localize));
 			return newAddress;
 		}
 		try {
@@ -45,12 +53,22 @@ public class LocationServiceImpl implements LocationService {
 					location.getLongitude(), 1).get(0);
 			fillAddress(newAddress, address);
 		} catch (IOException e) {
-			newAddress.setCity("Cannot get address. IOException");
+			newAddress.setError(ctx.getString(R.string.cannot_localize));
 			e.getStackTrace();
 		}
 		return newAddress;
 	}
 
+	/**
+	 * Ulozi predane informace o umisteni
+	 * 
+	 * @param newAddress
+	 *            - Prazdna instance tridy {@link AddressDTO}
+	 * @param address
+	 *            - Instance tridy {@link Address} s informacemi o umisteni
+	 * @return Predana instance {@link AddressDTO} naplnena informacemi o
+	 *         lokalite
+	 */
 	private AddressDTO fillAddress(AddressDTO newAddress, Address address) {
 		newAddress.setPostalCode(address.getPostalCode());
 		newAddress.setCity(address.getLocality());
