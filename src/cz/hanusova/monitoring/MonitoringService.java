@@ -24,11 +24,6 @@ public class MonitoringService extends Service {
 	}
 
 	@Override
-	public IBinder onBind(Intent intent) {
-		return null;
-	}
-
-	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		sManager.registerListener(sListener, accelerometer,
 				SensorManager.SENSOR_DELAY_NORMAL);
@@ -38,9 +33,12 @@ public class MonitoringService extends Service {
 
 	@Override
 	public void onDestroy() {
-		System.out.println("Monitoring service destroyed");
-
 		sManager.unregisterListener(sListener);
 		super.onDestroy();
+	}
+
+	@Override
+	public IBinder onBind(Intent intent) {
+		return null;
 	}
 }

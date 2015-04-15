@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import cz.hanusova.monitoring.model.Constants;
+import cz.hanusova.monitoring.service.impl.Constants;
 import cz.hanusova.monitoring.service.impl.Utils;
 
 public class PowerReceiver extends BroadcastReceiver {

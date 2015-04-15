@@ -4,7 +4,6 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.telephony.SmsManager;
-import cz.hanusova.monitoring.model.Constants;
 import cz.hanusova.monitoring.service.AccelerometerService;
 
 public class AccelerometerServiceImpl implements AccelerometerService {

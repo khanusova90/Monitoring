@@ -1,4 +1,4 @@
-package cz.hanusova.monitoring.model;
+package cz.hanusova.monitoring.service.impl;
 
 import cz.hanusova.monitoring.SosActivity;
 

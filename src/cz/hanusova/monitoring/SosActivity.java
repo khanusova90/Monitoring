@@ -22,8 +22,8 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.location.LocationServices;
 
-import cz.hanusova.monitoring.model.Constants;
 import cz.hanusova.monitoring.service.LocationService;
+import cz.hanusova.monitoring.service.impl.Constants;
 import cz.hanusova.monitoring.service.impl.LocationServiceImpl;
 import cz.hanusova.monitoring.service.impl.Utils;
 
@@ -60,7 +60,7 @@ public class SosActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sos_view);
-		addFlags();
+		unlockScreen();
 		play = true;
 		sendSms = true;
 		resolvingError = savedInstanceState != null
@@ -79,7 +79,7 @@ public class SosActivity extends ActionBarActivity implements
 	/**
 	 * Odemkne a rozsviti obrazovku
 	 */
-	private void addFlags() {
+	private void unlockScreen() {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);

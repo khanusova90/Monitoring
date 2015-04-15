@@ -12,15 +12,11 @@ import cz.hanusova.monitoring.service.impl.Utils;
 
 public class WelcomeActivity extends ActionBarActivity {
 
-	// private NumberService numberService;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome_view);
-		// numberService = new NumberServiceImpl(getApplicationContext());
 		monitor();
-
 		displayNumber();
 	}
 
