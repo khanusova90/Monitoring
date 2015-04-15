@@ -2,13 +2,16 @@
     package="cz.hanusova.monitoring"
     android:versionCode="1"
     android:versionName="1.0">
-
+    
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="10"
         android:targetSdkVersion="21" />
     
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -26,6 +29,9 @@
         <meta-data 
             android:name="com.google.android.gms.version" 
             android:value="@integer/google_play_services_version"/>
+    	<meta-data
+      		android:name="com.google.android.geo.API_KEY"
+      		android:value="AIzaSyAUzbbnNr92p9gdr-Stgksm4t6gaebbqFM"/>
         
         <activity 
             android:name="WelcomeActivity"
@@ -39,10 +45,9 @@
         
         <activity 
             android:name="SosActivity"
-            android:launchMode="singleInstance" />
-        <activity 
-            android:name="LocationActivity"
-            android:launchMode="singleInstance"/>
+            android:launchMode="singleInstance" 
+            android:screenOrientation="portrait"
+    		/>
         
         <service 
             android:name="MonitoringService" />
@@ -53,7 +58,14 @@
             </intent-filter>
         </receiver>
         
-        <activity android:name="SledovaniPozice"></activity>
+        <receiver android:name="PowerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        
+        <uses-library android:name="com.google.android.maps" />
     </application>
 
 </manifest>

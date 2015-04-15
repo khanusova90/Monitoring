@@ -4,21 +4,19 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
+import cz.hanusova.monitoring.service.AccelerometerService;
 import cz.hanusova.monitoring.service.impl.AccelerometerServiceImpl;
 
 public class MonitoringService extends Service {
 
 	private SensorManager sManager;
 	private Sensor accelerometer;
-	private SensorEventListener sListener;
+	private AccelerometerService sListener;
 
 	@Override
 	public void onCreate() {
-		System.out.println("Monitoring service created");
-
 		super.onCreate();
 		sManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		accelerometer = sManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -32,8 +30,6 @@ public class MonitoringService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		System.out.println("Monitoring service started");
-
 		sManager.registerListener(sListener, accelerometer,
 				SensorManager.SENSOR_DELAY_NORMAL);
 

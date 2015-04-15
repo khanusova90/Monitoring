@@ -12,11 +12,13 @@
     
 <!-- ............................SOS view............................... -->
 	<string name="okay_state">Jsem v pořádku</string>
-	<string name="call_sos">Volej SOS!</string>
+	<string name="call_sos">SOS</string>
 	
 <!-- ............................Location............................... -->
 	<string name="connection_failed">Připojení selhalo.</string>
 	<string name="connection_suspended">Připojení bylo přerušeno.</string>
 	<string name="cannot_localize">Nebylo možné lokalizovat telefon.</string>
+	<string name="address_not_found">Nebyla nalezena žádná adresa.</string>
+	<string name="coordinates">Souřadnice: </string>
 
 </resources>

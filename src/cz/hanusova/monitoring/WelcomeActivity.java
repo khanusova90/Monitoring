@@ -8,18 +8,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import cz.hanusova.monitoring.service.NumberService;
-import cz.hanusova.monitoring.service.impl.NumberServiceImpl;
+import cz.hanusova.monitoring.service.impl.Utils;
 
 public class WelcomeActivity extends ActionBarActivity {
 
-	private NumberService numberService;
+	// private NumberService numberService;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome_view);
-		numberService = new NumberServiceImpl(getApplicationContext());
+		// numberService = new NumberServiceImpl(getApplicationContext());
 		monitor();
 
 		displayNumber();
@@ -61,7 +60,7 @@ public class WelcomeActivity extends ActionBarActivity {
 	 */
 	private void displayNumber() {
 		TextView tv = (TextView) findViewById(R.id.number_view);
-		String number = numberService.getNumber();
+		String number = Utils.getPhoneNumber(getApplicationContext());
 		if (number != null) {
 			String text = getString(R.string.actual_phone, number);
 			tv.setText(text);
@@ -71,11 +70,6 @@ public class WelcomeActivity extends ActionBarActivity {
 	// TODO: smazat
 	public void startSos(View button) {
 		Intent intent = new Intent(this, SosActivity.class);
-		startActivity(intent);
-	}
-
-	public void startZrychleni(View button) {
-		Intent intent = new Intent(this, SledovaniPozice.class);
 		startActivity(intent);
 	}
 

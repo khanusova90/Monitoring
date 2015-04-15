@@ -33,17 +33,5 @@
         android:layout_height="wrap_content"
         android:text="ZKOUŠKA SOS"
         android:onClick="startSos"/>
-    
-    <TextView 
-        android:id="@+id/acc_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="chyba"/>
-    
-    <Button 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ZKOUŠKA ZRYCHLENI"
-        android:onClick="startZrychleni"/>
 
 </LinearLayout>
