@@ -22,34 +22,13 @@ public class AccelerometerServiceImpl implements AccelerometerService {
 	public void onSensorChanged(SensorEvent event) {
 		if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER)
 			return;
+			
 		dx = event.values[0];
 		dy = event.values[1];
 		dz = event.values[2];
 		total = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
 		if (isAccLow() || isAccHigh()) {
-			if (isAccLow()) {
-				String number = Utils.getPhoneNumber(ctx);
-				SmsManager manager = SmsManager.getDefault();
-				manager.sendTextMessage(number, null, "Zrychlení < 1,5. dy = "
-						+ dx + ", dy = " + dy + ", dz = " + dz + ". Celkove: "
-						+ total, null, null);
-				System.out.println("AccLow");
-			}
-			if (isAccHigh()) {
-				String number = Utils.getPhoneNumber(ctx);
-				SmsManager manager = SmsManager.getDefault();
-				manager.sendTextMessage(number, null, "Zrychlení > 17. dy = "
-						+ dx + ", dy = " + dy + ", dz = " + dz + ". Celkove: "
-						+ total, null, null);
-				System.out.println("AccHigh");
-			}
-			// TODO: smazat
-			System.out.println("Rychlost XXXX: " + dx);
-			System.out.println("Rychlost YYYY: " + dy);
-			System.out.println("Rychlost ZZZZ: " + dz);
-			System.out.println("Celkové zrychlení: " + total);
-
 			Utils.startSosActivity(ctx, Constants.FALL_ALARM_DELAY,
 					Constants.FALL_SMS_DELAY);
 		}
