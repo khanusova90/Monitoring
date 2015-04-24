@@ -12,31 +12,35 @@ public class PowerReceiver extends BroadcastReceiver {
 	private boolean isConnected;
 
 	/**
-	 * Po dobe definovane ve tride {@link Constants} spusti {@link SosActivity}
+	 * Pri nabijeni telefonu se po dobe definovane ve tride {@link Constants}
+	 * spusti {@link SosActivity}. Pokud je telefon do teto doby odpojen, nic se
+	 * nestane
 	 */
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		ctx = context;
+		isConnected = false;
+
+		if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
+			isConnected = false;
+		}
 
 		if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
-			System.out.println("connected");
 			isConnected = true;
+		}
+
+		if (isConnected) {
 			Handler handler = new Handler();
 			handler.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					if (isConnected) {
-						System.out.println("still connected");
 						Utils.startSosActivity(ctx,
 								Constants.POWER_ALARM_DELAY,
 								Constants.POWER_SMS_DELAY);
 					}
 				}
 			}, Constants.POWER_DELAY);
-		}
-		if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
-			isConnected = false;
-			System.out.println("Disconnected");
 		}
 	}
 }

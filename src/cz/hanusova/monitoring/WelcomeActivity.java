@@ -23,7 +23,7 @@ public class WelcomeActivity extends ActionBarActivity {
 	/**
 	 * Ulozi telefonni cislo do pameti
 	 * 
-	 * @param number
+	 * @param button
 	 */
 	public void saveNumber(View button) {
 		String number = getText();
@@ -52,7 +52,7 @@ public class WelcomeActivity extends ActionBarActivity {
 	 * Zobrazi telefonni cislo na displeji
 	 * 
 	 * @param tv
-	 *            - {@link TextView}, ktere zobrazi cislo
+	 *            {@link TextView}, ktere zobrazi cislo
 	 */
 	private void displayNumber() {
 		TextView tv = (TextView) findViewById(R.id.number_view);
@@ -61,12 +61,6 @@ public class WelcomeActivity extends ActionBarActivity {
 			String text = getString(R.string.actual_phone, number);
 			tv.setText(text);
 		}
-	}
-
-	// TODO: smazat
-	public void startSos(View button) {
-		Intent intent = new Intent(this, SosActivity.class);
-		startActivity(intent);
 	}
 
 	/**

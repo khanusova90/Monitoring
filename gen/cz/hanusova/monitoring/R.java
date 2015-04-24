@@ -2280,11 +2280,11 @@ containing a value of this type.
          */
         public static final int abc_toolbar_collapse_description=0x7f07002a;
         public static final int accept=0x7f070002;
-        public static final int actual_phone=0x7f07003b;
-        public static final int address_not_found=0x7f070042;
+        public static final int actual_phone=0x7f07003a;
+        public static final int address_not_found=0x7f070041;
         public static final int app_name=0x7f070036;
-        public static final int call_sos=0x7f07003e;
-        public static final int cannot_localize=0x7f070041;
+        public static final int call_sos=0x7f07003d;
+        public static final int cannot_localize=0x7f070040;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f070009;
@@ -2395,28 +2395,27 @@ containing a value of this type.
         public static final int commono_google_play_services_api_unavailable_text=0x7f070022;
         /**  ............................Location............................... 
          */
-        public static final int connection_failed=0x7f07003f;
-        public static final int connection_suspended=0x7f070040;
-        public static final int coordinates=0x7f070043;
+        public static final int connection_failed=0x7f07003e;
+        public static final int connection_suspended=0x7f07003f;
+        public static final int coordinates=0x7f070042;
         public static final int create_calendar_message=0x7f070005;
         public static final int create_calendar_title=0x7f070004;
         public static final int decline=0x7f070003;
-        public static final int no_phone=0x7f07003c;
+        public static final int no_phone=0x7f07003b;
         /**  ............................SOS view............................... 
          */
-        public static final int okay_state=0x7f07003d;
-        public static final int phone_input=0x7f070039;
+        public static final int okay_state=0x7f07003c;
+        /**  .........................Uvodni strana............................. 
+         */
+        public static final int phone_input=0x7f070038;
         public static final int phone_number=0x7f070037;
-        public static final int save=0x7f07003a;
+        public static final int save=0x7f070039;
         public static final int store_picture_message=0x7f070001;
         public static final int store_picture_title=0x7f070000;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
         public static final int wallet_buy_button_place_holder=0x7f070025;
-        /**  .........................Uvodni strana............................. 
-         */
-        public static final int welcome=0x7f070038;
     }
     public static final class style {
         /** 

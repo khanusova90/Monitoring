@@ -57,19 +57,19 @@
 # view res/layout/abc_screen_toolbar.xml #generated:36
 -keep class android.support.v7.widget.Toolbar { <init>(...); }
 
-# view AndroidManifest.xml #generated:55
+# view AndroidManifest.xml #generated:52
 -keep class cz.hanusova.monitoring.BootReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:52
+# view AndroidManifest.xml #generated:49
 -keep class cz.hanusova.monitoring.MonitoringService { <init>(...); }
 
-# view AndroidManifest.xml #generated:61
+# view AndroidManifest.xml #generated:58
 -keep class cz.hanusova.monitoring.PowerReceiver { <init>(...); }
 
-# view AndroidManifest.xml #generated:46
+# view AndroidManifest.xml #generated:43
 -keep class cz.hanusova.monitoring.SosActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:36
+# view AndroidManifest.xml #generated:33
 -keep class cz.hanusova.monitoring.WelcomeActivity { <init>(...); }
 
 # onClick res/layout/sos_view.xml #generated:17
@@ -80,7 +80,4 @@
 
 # onClick res/layout/sos_view.xml #generated:8
 -keepclassmembers class * { *** setOk(...); }
-
-# onClick res/layout/welcome_view.xml #generated:31
--keepclassmembers class * { *** startSos(...); }
 

@@ -8,6 +8,9 @@ import cz.hanusova.monitoring.SosActivity;
 
 public final class Utils {
 
+	private Utils() {
+	}
+
 	/**
 	 * Spusti {@link SosActivity} se zadanymi parametry
 	 * 

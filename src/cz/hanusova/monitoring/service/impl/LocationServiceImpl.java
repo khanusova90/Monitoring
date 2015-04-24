@@ -9,8 +9,6 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -20,9 +18,18 @@ import com.google.android.gms.location.LocationServices;
 import cz.hanusova.monitoring.R;
 import cz.hanusova.monitoring.service.LocationService;
 
+/**
+ * Portions of this page are modifications based on work created and shared by
+ * the Android Open Source Project and used according to terms described in the
+ * Creative Commons 2.5 Attribution License.
+ * 
+ * For further information about reverse geocoding see
+ * https://developer.android.com/training/location/display-address.html
+ * 
+ * @author Katerina Hanusova
+ *
+ */
 public class LocationServiceImpl implements LocationService {
-	private LocationManager locManager;
-	private LocationListener locListener;
 	private Context ctx;
 
 	public LocationServiceImpl(Context ctx) {

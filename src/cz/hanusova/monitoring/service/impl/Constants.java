@@ -38,12 +38,12 @@ public final class Constants {
 	/**
 	 * Doba od zapojeni telefonu do spusteni {@link SosActivity}
 	 */
-	public static final int POWER_DELAY = 1000 * 60;
+	public static final int POWER_DELAY = 1000 * 60 * 60 * 10;
 
 	/**
-	 * SOS cislo
+	 * Tisnova linka
 	 */
-	public static final int SOS_NUMBER = 735068670;
+	public static final int SOS_NUMBER = 112;
 
 	/**
 	 * SMS zprava, ktera se zasle v pripade padu na predvolene cislo

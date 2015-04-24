@@ -1,6 +1,5 @@
 package cz.hanusova.monitoring;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
@@ -14,7 +13,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -27,14 +25,23 @@ import cz.hanusova.monitoring.service.impl.Constants;
 import cz.hanusova.monitoring.service.impl.LocationServiceImpl;
 import cz.hanusova.monitoring.service.impl.Utils;
 
-@SuppressLint("NewApi")
+/**
+ * Portions of this class are modifications based on work created and shared by
+ * the Android Open Source Project and used according to terms described in the
+ * Creative Commons 2.5 Attribution License.
+ * 
+ * For more information about connecting to Google Api Client see
+ * https://developer.android.com/google/auth/api-client.html
+ * 
+ * @author Katerina Hanusova
+ *
+ */
 public class SosActivity extends ActionBarActivity implements
 		OnConnectionFailedListener, ConnectionCallbacks {
 
 	private Ringtone ringtone;
 	private String address;
 
-	// private NumberService numberService;
 	private LocationService locService;
 	private GoogleApiClient googleApiClient;
 
@@ -65,7 +72,6 @@ public class SosActivity extends ActionBarActivity implements
 		sendSms = true;
 		resolvingError = savedInstanceState != null
 				&& savedInstanceState.getBoolean(STATE_RESOLVING_ERROR, false);
-		// numberService = new NumberServiceImpl(getApplicationContext());
 		locService = new LocationServiceImpl(getApplicationContext());
 		googleApiClient = new GoogleApiClient.Builder(this)
 				.addApi(LocationServices.API).addConnectionCallbacks(this)
@@ -83,6 +89,7 @@ public class SosActivity extends ActionBarActivity implements
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	}
 
 	@Override
@@ -141,6 +148,10 @@ public class SosActivity extends ActionBarActivity implements
 		}, alarmDelay);
 	}
 
+	/**
+	 * Nastavi dobu, po ktere se spusti alarm a odesle SMS. V pripade, ze nebyly
+	 * tyto hodnoty predany, pouzije vychozi nastaveni z {@link Constants}
+	 */
 	private void setDelay() {
 		Intent i = getIntent();
 		alarmDelay = i.getIntExtra(KEY_ALARM_DELAY, Constants.DEFAULT_DELAY);
@@ -148,7 +159,7 @@ public class SosActivity extends ActionBarActivity implements
 	}
 
 	/**
-	 * Metoda spusti prehravani zvuku nastaveneho na budik
+	 * Spusti prehravani zvuku nastaveneho na budik
 	 */
 	private void playSound() {
 		setSoundLoud();
@@ -161,7 +172,7 @@ public class SosActivity extends ActionBarActivity implements
 	}
 
 	/**
-	 * Metoda nastavi nejvyssi hlasitost vyzvaneni
+	 * Nastavi nejvyssi hlasitost vyzvaneni
 	 */
 	private void setSoundLoud() {
 		AudioManager manager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -197,7 +208,6 @@ public class SosActivity extends ActionBarActivity implements
 	@Override
 	public void onConnected(Bundle bundle) {
 		address = locService.getLocation(googleApiClient);
-		Toast.makeText(this, address, Toast.LENGTH_LONG).show();
 	}
 
 	/**
